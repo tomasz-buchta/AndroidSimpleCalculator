@@ -12,7 +12,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Button;
+import android.view.ViewGroup.LayoutParams;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
         editText1 = (EditText)findViewById(R.id.editText);
         editText2 = (EditText)findViewById(R.id.editText2);
         result = (TextView)findViewById(R.id.textView2);
+
+        Button button = new Button(this);
+        button.setText("test");
+        LinearLayout ll = (LinearLayout)findViewById(R.id.linear);
+
+        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+        ll.addView(button);
+
+
         calculateButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Log.d("MainActivity","Calculate " + editText1.getText().toString() + " and " + editText2.getText().toString());
